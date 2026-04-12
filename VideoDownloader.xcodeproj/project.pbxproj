@@ -21,6 +21,7 @@
 		607658E06CB1234648BA17AE /* ProgressParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75B8A48CFFA0A5B27324E9B /* ProgressParser.swift */; };
 		6B69A9875D5E4A24047D396C /* SiteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5313CB1975DCC2C0F1132E /* SiteSource.swift */; };
 		73C404B398581040C7D19785 /* VideoDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF7E3DD31EFF586A02E1CB /* VideoDownloaderTests.swift */; };
+		ADA47E6D709FC91B57C60946 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4274F80A5D9864A23E6A657 /* Updater.swift */; };
 		B479BB98FE9E6DDA22B1D00E /* SidecarJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BA51AE442BED87728E92BD /* SidecarJSONTests.swift */; };
 		F6770C78FADF3DB23493E61F /* FormatProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91073F0D7B9E4178B46E33A /* FormatProbe.swift */; };
 		FB55AEC534CF3B3FE34F0BCE /* ProgressParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D36C32677310BE9EF0F5819 /* ProgressParserTests.swift */; };
@@ -51,6 +52,7 @@
 		5EEA4AB8BDF7C2D8020F95EB /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatProbeTests.swift; sourceTree = "<group>"; };
 		6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloaderApp.swift; sourceTree = "<group>"; };
+		B4274F80A5D9864A23E6A657 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		B6C3A63F5F631680D554BDF0 /* SidecarJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidecarJSON.swift; sourceTree = "<group>"; };
 		CDB3A42F902A2C03EE258B85 /* VideoDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE03AD2EDD68D6A4180AD93C /* DownloadFormatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFormatTests.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				01BA9DD516EB837459A0A13B /* BinaryLocator.swift */,
 				F91073F0D7B9E4178B46E33A /* FormatProbe.swift */,
 				F75B8A48CFFA0A5B27324E9B /* ProgressParser.swift */,
+				B4274F80A5D9864A23E6A657 /* Updater.swift */,
 				3E5DA7CF1ED3C01C546D0E82 /* URLClassifier.swift */,
 			);
 			path = Backend;
@@ -283,6 +286,7 @@
 				25BB2EDD09AFD001CF71F591 /* SidecarJSON.swift in Sources */,
 				6B69A9875D5E4A24047D396C /* SiteSource.swift in Sources */,
 				5EC757897512649D1D8BFCA6 /* URLClassifier.swift in Sources */,
+				ADA47E6D709FC91B57C60946 /* Updater.swift in Sources */,
 				5E84CFA3A476AB4B47440D73 /* VideoDownloaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
