@@ -10,6 +10,7 @@
 		06FEDCD7C0B9E330FD7446B1 /* TranscriptionEngineLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF985223CD90A470585193 /* TranscriptionEngineLauncher.swift */; };
 		07F07276EB6A644E274D49E7 /* DiskSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E147CC5253E4610E310F1CB /* DiskSpace.swift */; };
 		0B5DCAFE8C2826103D70EC77 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA4AB8BDF7C2D8020F95EB /* MediaItem.swift */; };
+		0C34AF752E3917F64E0B4486 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53228176FFE8D769CA6C30A3 /* MainView.swift */; };
 		0DB4C924B00E8416A65F9A4B /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C08126CBB84AC09678DDA /* QueueView.swift */; };
 		0DDAD615911F4532F6C9D1A3 /* FormatPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9074E6C07CE2FBCAA72180 /* FormatPickerSheet.swift */; };
 		1D2AE60A87B33C8EEC6D666D /* DownloadFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03AD2EDD68D6A4180AD93C /* DownloadFormatTests.swift */; };
@@ -68,6 +69,7 @@
 		4C5313CB1975DCC2C0F1132E /* SiteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteSource.swift; sourceTree = "<group>"; };
 		5119CE3F1DA6C70E3AB2651C /* URLClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLClassifierTests.swift; sourceTree = "<group>"; };
 		527C08126CBB84AC09678DDA /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
+		53228176FFE8D769CA6C30A3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		58EF64CC45255D5C7C7D2EED /* SidecarWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidecarWriter.swift; sourceTree = "<group>"; };
 		5A422EF2A2C3B0409D041D1D /* VideoDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9074E6C07CE2FBCAA72180 /* FormatPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatPickerSheet.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		2DFE2F2EF9311852C15F3B0D /* App */ = {
 			isa = PBXGroup;
 			children = (
+				53228176FFE8D769CA6C30A3 /* MainView.swift */,
 				6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */,
 			);
 			path = App;
@@ -341,6 +344,7 @@
 				7FEDD8E87DF5BA62E574EB0E /* LibraryItemView.swift in Sources */,
 				EAB48D1A819C3423DFC58468 /* LibraryModel.swift in Sources */,
 				CE7EF5117F1CDA3BC2DB9CED /* LibraryView.swift in Sources */,
+				0C34AF752E3917F64E0B4486 /* MainView.swift in Sources */,
 				0B5DCAFE8C2826103D70EC77 /* MediaItem.swift in Sources */,
 				4DC57A392A431B155A14D85D /* PlaylistResolver.swift in Sources */,
 				607658E06CB1234648BA17AE /* ProgressParser.swift in Sources */,

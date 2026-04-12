@@ -1,0 +1,27 @@
+import SwiftUI
+
+struct MainView: View {
+    enum Tab: String, CaseIterable, Identifiable {
+        case queue = "Queue"
+        case library = "Library"
+        var id: String { rawValue }
+    }
+    @State private var selected: Tab = .queue
+
+    var body: some View {
+        VStack(spacing: 0) {
+            Picker("", selection: $selected) {
+                ForEach(Tab.allCases) { Text($0.rawValue).tag($0) }
+            }
+            .pickerStyle(.segmented)
+            .padding(8)
+
+            Divider()
+
+            switch selected {
+            case .queue: QueueView()
+            case .library: LibraryView()
+            }
+        }
+    }
+}

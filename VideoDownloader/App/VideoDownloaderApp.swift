@@ -2,10 +2,37 @@ import SwiftUI
 
 @main
 struct VideoDownloaderApp: App {
+    @State private var queue = QueueModel()
+    @State private var library = LibraryModel()
+    @State private var driveMissing = false
+
     var body: some Scene {
         WindowGroup {
-            Text("Video Downloader — scaffolding")
-                .frame(minWidth: 600, minHeight: 400)
+            MainView()
+                .environment(queue)
+                .environment(library)
+                .frame(minWidth: 900, minHeight: 600)
+                .task {
+                    do {
+                        try BinaryLocator.ensureBinariesInstalled()
+                    } catch {
+                        print("Failed to install binaries: \(error)")
+                    }
+                    if !DriveCheck.isLibraryDriveMounted {
+                        driveMissing = true
+                        return
+                    }
+                    Task.detached { await Updater.updateYTDLP() }
+                    await library.scan(folder: DriveCheck.libraryFolder)
+                }
+                .alert("1tb drive not mounted",
+                       isPresented: $driveMissing,
+                       actions: {
+                           Button("Quit") { NSApp.terminate(nil) }
+                       },
+                       message: {
+                           Text("Please connect the drive at /Volumes/1tb  and relaunch.")
+                       })
         }
     }
 }
