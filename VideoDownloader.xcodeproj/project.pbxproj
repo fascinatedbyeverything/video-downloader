@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		44D85B371ACACC4C5C93C18C /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 3995AC32D7E79E8F9AC79516 /* bin */; };
 		5E84CFA3A476AB4B47440D73 /* VideoDownloaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */; };
+		6B69A9875D5E4A24047D396C /* SiteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5313CB1975DCC2C0F1132E /* SiteSource.swift */; };
 		73C404B398581040C7D19785 /* VideoDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AF7E3DD31EFF586A02E1CB /* VideoDownloaderTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		12AF7E3DD31EFF586A02E1CB /* VideoDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloaderTests.swift; sourceTree = "<group>"; };
 		3995AC32D7E79E8F9AC79516 /* bin */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bin; path = VideoDownloader/Resources/bin; sourceTree = SOURCE_ROOT; };
+		4C5313CB1975DCC2C0F1132E /* SiteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteSource.swift; sourceTree = "<group>"; };
 		5A422EF2A2C3B0409D041D1D /* VideoDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloaderApp.swift; sourceTree = "<group>"; };
 		CDB3A42F902A2C03EE258B85 /* VideoDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +113,7 @@
 		C910BBB4E03CC69F6C2BCC80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4C5313CB1975DCC2C0F1132E /* SiteSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B69A9875D5E4A24047D396C /* SiteSource.swift in Sources */,
 				5E84CFA3A476AB4B47440D73 /* VideoDownloaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
