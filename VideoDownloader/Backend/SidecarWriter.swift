@@ -8,14 +8,20 @@ enum SidecarWriter {
         libraryFolder: URL,
         ytdlpStdout: String
     ) async throws {
+        // Primary: yt-dlp prints "VDFINAL:<absolute path>" after post-processing
+        // (we pass `--print after_move:VDFINAL:%(filepath)s` in YTDLPRunner).
+        // Fallback: parse [Merger] / [ExtractAudio] / [download] Destination lines.
         let destRegex = try NSRegularExpression(pattern: #"\[download\] Destination: (.+)"#)
         let mergerRegex = try NSRegularExpression(pattern: #"\[Merger\] Merging formats into "(.+)""#)
         let extractRegex = try NSRegularExpression(pattern: #"\[ExtractAudio\] Destination: (.+)"#)
 
         var finalPath: String?
-        // Priority: Merger > ExtractAudio > last Destination
         for line in ytdlpStdout.split(separator: "\n") {
             let s = String(line)
+            if let prefixRange = s.range(of: "VDFINAL:") {
+                finalPath = String(s[prefixRange.upperBound...])
+                continue
+            }
             let range = NSRange(s.startIndex..., in: s)
             if let m = mergerRegex.firstMatch(in: s, range: range),
                let r = Range(m.range(at: 1), in: s) {
@@ -29,8 +35,6 @@ enum SidecarWriter {
                 finalPath = String(s[r])
             }
         }
-        // If audio extraction happened, the Merger match above gets overridden by ExtractAudio
-        // in the loop only if ExtractAudio appears later. yt-dlp output ordering handles this.
 
         guard let finalPath else {
             throw NSError(domain: "SidecarWriter", code: 1,

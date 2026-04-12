@@ -97,6 +97,8 @@ final class YTDLPRunner: @unchecked Sendable {
         if o.writeInfoJSON {
             args += ["--write-info-json"]
         }
+        // Print the final post-processed file path on its own line for SidecarWriter to parse.
+        args += ["--print", "after_move:VDFINAL:%(filepath)s"]
         args += [o.url]
         return args
     }
