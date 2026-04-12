@@ -49,6 +49,7 @@ final class QueueModel {
     func add(_ item: QueueItem) { items.append(item) }
     func remove(id: UUID) { items.removeAll { $0.id == id } }
 
+    @MainActor
     func addFromURL(_ url: String) async throws {
         let classification = URLClassifier.classify(url)
         switch classification {

@@ -10,6 +10,8 @@
 		06FEDCD7C0B9E330FD7446B1 /* TranscriptionEngineLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBF985223CD90A470585193 /* TranscriptionEngineLauncher.swift */; };
 		07F07276EB6A644E274D49E7 /* DiskSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E147CC5253E4610E310F1CB /* DiskSpace.swift */; };
 		0B5DCAFE8C2826103D70EC77 /* MediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEA4AB8BDF7C2D8020F95EB /* MediaItem.swift */; };
+		0DB4C924B00E8416A65F9A4B /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527C08126CBB84AC09678DDA /* QueueView.swift */; };
+		0DDAD615911F4532F6C9D1A3 /* FormatPickerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9074E6C07CE2FBCAA72180 /* FormatPickerSheet.swift */; };
 		1D2AE60A87B33C8EEC6D666D /* DownloadFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03AD2EDD68D6A4180AD93C /* DownloadFormatTests.swift */; };
 		214DAEC17727A224E3CE409B /* XCTAssertEqualOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129347307FEDCB6F98C507A /* XCTAssertEqualOptional.swift */; };
 		25BB2EDD09AFD001CF71F591 /* SidecarJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3A63F5F631680D554BDF0 /* SidecarJSON.swift */; };
@@ -31,6 +33,7 @@
 		ADA47E6D709FC91B57C60946 /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4274F80A5D9864A23E6A657 /* Updater.swift */; };
 		B479BB98FE9E6DDA22B1D00E /* SidecarJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BA51AE442BED87728E92BD /* SidecarJSONTests.swift */; };
 		CAED2E2D4FAD8E6E70D3574E /* SidecarWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EF64CC45255D5C7C7D2EED /* SidecarWriter.swift */; };
+		E2F6184EA245907A68FFECDB /* QueueRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC3ECA1C57C4D914386A2E5 /* QueueRow.swift */; };
 		EAB48D1A819C3423DFC58468 /* LibraryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697988F0301816A4FC134EA7 /* LibraryModel.swift */; };
 		F6770C78FADF3DB23493E61F /* FormatProbe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91073F0D7B9E4178B46E33A /* FormatProbe.swift */; };
 		FB55AEC534CF3B3FE34F0BCE /* ProgressParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D36C32677310BE9EF0F5819 /* ProgressParserTests.swift */; };
@@ -57,13 +60,16 @@
 		4129347307FEDCB6F98C507A /* XCTAssertEqualOptional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTAssertEqualOptional.swift; sourceTree = "<group>"; };
 		4C5313CB1975DCC2C0F1132E /* SiteSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteSource.swift; sourceTree = "<group>"; };
 		5119CE3F1DA6C70E3AB2651C /* URLClassifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLClassifierTests.swift; sourceTree = "<group>"; };
+		527C08126CBB84AC09678DDA /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
 		58EF64CC45255D5C7C7D2EED /* SidecarWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidecarWriter.swift; sourceTree = "<group>"; };
 		5A422EF2A2C3B0409D041D1D /* VideoDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideoDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9074E6C07CE2FBCAA72180 /* FormatPickerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatPickerSheet.swift; sourceTree = "<group>"; };
 		5D36C32677310BE9EF0F5819 /* ProgressParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressParserTests.swift; sourceTree = "<group>"; };
 		5E147CC5253E4610E310F1CB /* DiskSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskSpace.swift; sourceTree = "<group>"; };
 		5EEA4AB8BDF7C2D8020F95EB /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatProbeTests.swift; sourceTree = "<group>"; };
 		697988F0301816A4FC134EA7 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
+		6BC3ECA1C57C4D914386A2E5 /* QueueRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueRow.swift; sourceTree = "<group>"; };
 		6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloaderApp.swift; sourceTree = "<group>"; };
 		752389172F413758213363C6 /* PlaylistResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistResolver.swift; sourceTree = "<group>"; };
 		930F0E9378F0EF07A9308F79 /* QueueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueModel.swift; sourceTree = "<group>"; };
@@ -180,7 +186,10 @@
 		D5DF72658E6641618FA6DEEF /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				5C9074E6C07CE2FBCAA72180 /* FormatPickerSheet.swift */,
 				930F0E9378F0EF07A9308F79 /* QueueModel.swift */,
+				6BC3ECA1C57C4D914386A2E5 /* QueueRow.swift */,
+				527C08126CBB84AC09678DDA /* QueueView.swift */,
 			);
 			path = Queue;
 			sourceTree = "<group>";
@@ -310,12 +319,15 @@
 				3EC29B4EFC66C1DAFA4B06C4 /* DownloadFormat.swift in Sources */,
 				5F7E40D96881E439A2AB55C8 /* DriveCheck.swift in Sources */,
 				5EEF792261F75276B2ECAFBF /* FFmpegRunner.swift in Sources */,
+				0DDAD615911F4532F6C9D1A3 /* FormatPickerSheet.swift in Sources */,
 				F6770C78FADF3DB23493E61F /* FormatProbe.swift in Sources */,
 				EAB48D1A819C3423DFC58468 /* LibraryModel.swift in Sources */,
 				0B5DCAFE8C2826103D70EC77 /* MediaItem.swift in Sources */,
 				4DC57A392A431B155A14D85D /* PlaylistResolver.swift in Sources */,
 				607658E06CB1234648BA17AE /* ProgressParser.swift in Sources */,
 				451E37BB55FE17B222FACE28 /* QueueModel.swift in Sources */,
+				E2F6184EA245907A68FFECDB /* QueueRow.swift in Sources */,
+				0DB4C924B00E8416A65F9A4B /* QueueView.swift in Sources */,
 				25BB2EDD09AFD001CF71F591 /* SidecarJSON.swift in Sources */,
 				CAED2E2D4FAD8E6E70D3574E /* SidecarWriter.swift in Sources */,
 				6B69A9875D5E4A24047D396C /* SiteSource.swift in Sources */,
