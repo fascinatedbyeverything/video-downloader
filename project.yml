@@ -1,0 +1,61 @@
+name: VideoDownloader
+options:
+  bundleIdPrefix: com.fascinatedbyeverything
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  VideoDownloader:
+    type: application
+    platform: macOS
+    sources:
+      - path: VideoDownloader
+        excludes:
+          - "Resources/bin/**"
+      - path: VideoDownloader/Resources/bin
+        buildPhase: resources
+        type: folder
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fascinatedbyeverything.VideoDownloader
+        PRODUCT_NAME: VideoDownloader
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Video Downloader"
+        INFOPLIST_KEY_LSMinimumSystemVersion: "$(MACOSX_DEPLOYMENT_TARGET)"
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: YES
+        COMBINE_HIDPI_IMAGES: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+  VideoDownloaderTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: VideoDownloaderTests
+    dependencies:
+      - target: VideoDownloader
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fascinatedbyeverything.VideoDownloaderTests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  VideoDownloader:
+    build:
+      targets:
+        VideoDownloader: all
+        VideoDownloaderTests: [test]
+    test:
+      targets:
+        - VideoDownloaderTests
