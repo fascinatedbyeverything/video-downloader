@@ -15,6 +15,7 @@
 		30B8364EA68B508C06CA4A64 /* FormatProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */; };
 		3EC29B4EFC66C1DAFA4B06C4 /* DownloadFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F2E9FFDB66551068CDA3A /* DownloadFormat.swift */; };
 		44D85B371ACACC4C5C93C18C /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 3995AC32D7E79E8F9AC79516 /* bin */; };
+		4DC57A392A431B155A14D85D /* PlaylistResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752389172F413758213363C6 /* PlaylistResolver.swift */; };
 		51581AB4FAE1638F369E69D2 /* URLClassifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5119CE3F1DA6C70E3AB2651C /* URLClassifierTests.swift */; };
 		5E84CFA3A476AB4B47440D73 /* VideoDownloaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */; };
 		5EC757897512649D1D8BFCA6 /* URLClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5DA7CF1ED3C01C546D0E82 /* URLClassifier.swift */; };
@@ -54,6 +55,7 @@
 		5EEA4AB8BDF7C2D8020F95EB /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatProbeTests.swift; sourceTree = "<group>"; };
 		6F77B72485BD95F70BB2865E /* VideoDownloaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloaderApp.swift; sourceTree = "<group>"; };
+		752389172F413758213363C6 /* PlaylistResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistResolver.swift; sourceTree = "<group>"; };
 		AE6DAE721795617B6D2F10A7 /* YTDLPRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDLPRunner.swift; sourceTree = "<group>"; };
 		B4274F80A5D9864A23E6A657 /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		B6C3A63F5F631680D554BDF0 /* SidecarJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidecarJSON.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				01BA9DD516EB837459A0A13B /* BinaryLocator.swift */,
 				FB264BCCB3B83E49228819F3 /* FFmpegRunner.swift */,
 				F91073F0D7B9E4178B46E33A /* FormatProbe.swift */,
+				752389172F413758213363C6 /* PlaylistResolver.swift */,
 				F75B8A48CFFA0A5B27324E9B /* ProgressParser.swift */,
 				B4274F80A5D9864A23E6A657 /* Updater.swift */,
 				3E5DA7CF1ED3C01C546D0E82 /* URLClassifier.swift */,
@@ -289,6 +292,7 @@
 				5EEF792261F75276B2ECAFBF /* FFmpegRunner.swift in Sources */,
 				F6770C78FADF3DB23493E61F /* FormatProbe.swift in Sources */,
 				0B5DCAFE8C2826103D70EC77 /* MediaItem.swift in Sources */,
+				4DC57A392A431B155A14D85D /* PlaylistResolver.swift in Sources */,
 				607658E06CB1234648BA17AE /* ProgressParser.swift in Sources */,
 				25BB2EDD09AFD001CF71F591 /* SidecarJSON.swift in Sources */,
 				6B69A9875D5E4A24047D396C /* SiteSource.swift in Sources */,
