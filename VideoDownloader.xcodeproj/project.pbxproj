@@ -11,6 +11,7 @@
 		1D2AE60A87B33C8EEC6D666D /* DownloadFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE03AD2EDD68D6A4180AD93C /* DownloadFormatTests.swift */; };
 		214DAEC17727A224E3CE409B /* XCTAssertEqualOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129347307FEDCB6F98C507A /* XCTAssertEqualOptional.swift */; };
 		25BB2EDD09AFD001CF71F591 /* SidecarJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3A63F5F631680D554BDF0 /* SidecarJSON.swift */; };
+		2F885DBB0AC8F43EA911EA77 /* BinaryLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA9DD516EB837459A0A13B /* BinaryLocator.swift */; };
 		30B8364EA68B508C06CA4A64 /* FormatProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */; };
 		3EC29B4EFC66C1DAFA4B06C4 /* DownloadFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384F2E9FFDB66551068CDA3A /* DownloadFormat.swift */; };
 		44D85B371ACACC4C5C93C18C /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 3995AC32D7E79E8F9AC79516 /* bin */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01BA9DD516EB837459A0A13B /* BinaryLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryLocator.swift; sourceTree = "<group>"; };
 		12AF7E3DD31EFF586A02E1CB /* VideoDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloaderTests.swift; sourceTree = "<group>"; };
 		22BA51AE442BED87728E92BD /* SidecarJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidecarJSONTests.swift; sourceTree = "<group>"; };
 		384F2E9FFDB66551068CDA3A /* DownloadFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadFormat.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		2ADA7799E768EA19F334BDBD /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				01BA9DD516EB837459A0A13B /* BinaryLocator.swift */,
 				F91073F0D7B9E4178B46E33A /* FormatProbe.swift */,
 				F75B8A48CFFA0A5B27324E9B /* ProgressParser.swift */,
 				3E5DA7CF1ED3C01C546D0E82 /* URLClassifier.swift */,
@@ -80,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				3995AC32D7E79E8F9AC79516 /* bin */,
-				C3E4A8C26DFA4B2BCE3303A5 /* bin */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -134,13 +136,6 @@
 			children = (
 			);
 			path = Library;
-			sourceTree = "<group>";
-		};
-		C3E4A8C26DFA4B2BCE3303A5 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = bin;
 			sourceTree = "<group>";
 		};
 		C910BBB4E03CC69F6C2BCC80 /* Model */ = {
@@ -280,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F885DBB0AC8F43EA911EA77 /* BinaryLocator.swift in Sources */,
 				3EC29B4EFC66C1DAFA4B06C4 /* DownloadFormat.swift in Sources */,
 				F6770C78FADF3DB23493E61F /* FormatProbe.swift in Sources */,
 				0B5DCAFE8C2826103D70EC77 /* MediaItem.swift in Sources */,
