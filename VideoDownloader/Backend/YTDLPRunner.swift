@@ -16,12 +16,12 @@ struct YTDLPDownloadOptions {
 
 final class YTDLPRunner: @unchecked Sendable {
     private var process: Process?
-    private var progressHandler: ((DownloadProgress) -> Void)?
+    private var progressHandler: (@Sendable (DownloadProgress) -> Void)?
     private var stdoutBuffer = ""
 
     func download(
         _ options: YTDLPDownloadOptions,
-        onProgress: @escaping (DownloadProgress) -> Void
+        onProgress: @escaping @Sendable (DownloadProgress) -> Void
     ) async throws -> YTDLPResult {
         let p = Process()
         p.executableURL = BinaryLocator.ytdlpURL
