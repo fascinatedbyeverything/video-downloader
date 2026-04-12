@@ -36,7 +36,17 @@ enum BinaryLocator {
 
         let dest = ytdlpURL
         guard !fm.fileExists(atPath: dest.path) else { return }
-        guard let src = Bundle.main.url(forResource: "yt-dlp", withExtension: nil) else {
+
+        // xcodegen exports Resources/bin as a folder reference — the bin/ directory
+        // is preserved inside Contents/Resources/. Bundle.main's resourceURL points
+        // at Contents/Resources, so we reach yt-dlp via the bin subdirectory.
+        let bundledBin = Bundle.main.resourceURL?.appendingPathComponent("bin/yt-dlp")
+        let src: URL
+        if let b = bundledBin, fm.fileExists(atPath: b.path) {
+            src = b
+        } else if let flat = Bundle.main.url(forResource: "yt-dlp", withExtension: nil) {
+            src = flat
+        } else {
             throw NSError(domain: "BinaryLocator", code: 1,
                 userInfo: [NSLocalizedDescriptionKey: "yt-dlp missing from app bundle"])
         }

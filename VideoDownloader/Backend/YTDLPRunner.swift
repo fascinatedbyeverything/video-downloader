@@ -17,7 +17,8 @@ struct YTDLPDownloadOptions {
 final class YTDLPRunner: @unchecked Sendable {
     private var process: Process?
     private var progressHandler: (@Sendable (DownloadProgress) -> Void)?
-    private var stdoutBuffer = ""
+    private var stdoutBuffer = ""   // trailing partial line awaiting a newline
+    private var fullStdout = ""     // complete captured stdout for post-run parsing
 
     func download(
         _ options: YTDLPDownloadOptions,
@@ -49,9 +50,10 @@ final class YTDLPRunner: @unchecked Sendable {
 
         let stdoutData = (try? stdoutPipe.fileHandleForReading.readToEnd()) ?? Data()
         let stderrData = (try? stderrPipe.fileHandleForReading.readToEnd()) ?? Data()
+        let tail = String(data: stdoutData, encoding: .utf8) ?? ""
         return YTDLPResult(
             exitCode: p.terminationStatus,
-            stdoutText: (String(data: stdoutData, encoding: .utf8) ?? "") + stdoutBuffer,
+            stdoutText: fullStdout + tail,
             stderrText: String(data: stderrData, encoding: .utf8) ?? ""
         )
     }
@@ -61,6 +63,7 @@ final class YTDLPRunner: @unchecked Sendable {
     }
 
     private func handleStdout(_ chunk: String) {
+        fullStdout += chunk
         stdoutBuffer += chunk
         var lines = stdoutBuffer.split(separator: "\n", omittingEmptySubsequences: false)
         let trailing = lines.removeLast()
