@@ -29,6 +29,12 @@ struct QueueRow: View {
                         if let e = item.eta { Text("ETA \(e)").font(.caption2) }
                     }
                 }
+                if item.status == .complete {
+                    HStack(spacing: 4) {
+                        Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                        Text("Downloaded — open Library tab").font(.caption2).foregroundStyle(.green)
+                    }
+                }
                 if item.status == .failed, let msg = item.errorMessage {
                     Text(msg).font(.caption2).foregroundStyle(.red).lineLimit(2)
                 }

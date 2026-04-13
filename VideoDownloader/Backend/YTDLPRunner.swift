@@ -51,10 +51,27 @@ final class YTDLPRunner: @unchecked Sendable {
         let stdoutData = (try? stdoutPipe.fileHandleForReading.readToEnd()) ?? Data()
         let stderrData = (try? stderrPipe.fileHandleForReading.readToEnd()) ?? Data()
         let tail = String(data: stdoutData, encoding: .utf8) ?? ""
+        let combinedStdout = fullStdout + tail
+        let stderrText = String(data: stderrData, encoding: .utf8) ?? ""
+
+        // Debug log — always writes the last run's full output so we can see what happened
+        let debugLog = """
+        === yt-dlp run @ \(Date()) ===
+        args: \(p.arguments ?? [])
+        exitCode: \(p.terminationStatus)
+        --- stdout ---
+        \(combinedStdout)
+        --- stderr ---
+        \(stderrText)
+        === end ===
+
+        """
+        try? debugLog.write(toFile: "/tmp/vd-last-download.log", atomically: true, encoding: .utf8)
+
         return YTDLPResult(
             exitCode: p.terminationStatus,
-            stdoutText: fullStdout + tail,
-            stderrText: String(data: stderrData, encoding: .utf8) ?? ""
+            stdoutText: combinedStdout,
+            stderrText: stderrText
         )
     }
 
@@ -88,7 +105,9 @@ final class YTDLPRunner: @unchecked Sendable {
         case .wav_16_441:
             args += ["-x", "--audio-format", "wav"]
         case nil:
-            break
+            // Video download — NEVER webm. Force H.264/H.265 preference and mp4 container.
+            args += ["--format-sort", "vcodec:h264,vcodec:avc1,vcodec:h265,vcodec:hevc,ext:mp4"]
+            args += ["--merge-output-format", "mp4"]
         }
 
         if o.writeThumbnail {

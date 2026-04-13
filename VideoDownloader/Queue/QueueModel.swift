@@ -46,6 +46,10 @@ final class QueueModel {
     var isDownloading: Bool = false
     var currentIndex: Int? = nil
 
+    /// Called after each successful download so the UI can refresh the library.
+    @ObservationIgnored
+    var onItemCompleted: (@Sendable @MainActor () async -> Void)?
+
     func add(_ item: QueueItem) { items.append(item) }
     func remove(id: UUID) { items.removeAll { $0.id == id } }
 
@@ -120,6 +124,7 @@ final class QueueModel {
                     ytdlpStdout: result.stdoutText
                 )
                 item.status = .complete
+                await onItemCompleted?()
             } else {
                 item.status = .failed
                 item.errorMessage = result.stderrText

@@ -22,6 +22,9 @@ struct VideoDownloaderApp: App {
                         driveMissing = true
                         return
                     }
+                    queue.onItemCompleted = { [weak library] in
+                        await library?.scan(folder: DriveCheck.libraryFolder)
+                    }
                     Task.detached { await Updater.updateYTDLP() }
                     await library.scan(folder: DriveCheck.libraryFolder)
                 }
