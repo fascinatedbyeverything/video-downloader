@@ -16,11 +16,14 @@ struct LibraryView: View {
                     ForEach(LibraryModel.Sort.allCases, id: \.self) { Text($0.rawValue).tag($0) }
                 }
                 .frame(width: 160)
-                Picker("View", selection: $library.viewMode) {
+                Picker(selection: $library.viewMode) {
                     Image(systemName: "square.grid.2x2").tag(LibraryModel.ViewMode.grid)
                     Image(systemName: "list.bullet").tag(LibraryModel.ViewMode.list)
+                } label: {
+                    EmptyView()
                 }
                 .pickerStyle(.segmented)
+                .labelsHidden()
                 .frame(width: 80)
                 Spacer()
                 Button("Import…") { showImport = true }

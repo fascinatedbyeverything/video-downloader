@@ -48,10 +48,12 @@ enum SidecarWriter {
         let infoURL = libraryFolder.appendingPathComponent("\(base).info.json")
         var uploader: String? = nil
         var description: String? = nil
+        var realTitle: String? = nil
         if let data = try? Data(contentsOf: infoURL),
            let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
             uploader = json["uploader"] as? String
             description = json["description"] as? String
+            realTitle = json["title"] as? String
         }
 
         let thumb = libraryFolder.appendingPathComponent("\(base).jpg")
@@ -64,7 +66,7 @@ enum SidecarWriter {
 
         let sidecar = SidecarJSON(
             schemaVersion: 1,
-            title: item.title,
+            title: realTitle ?? item.title,
             url: item.url,
             site: item.site,
             uploader: uploader,
