@@ -97,6 +97,8 @@ final class YTDLPRunner: @unchecked Sendable {
         args += ["-f", o.format.ytdlpFormat]
         args += ["-o", o.outputTemplate]
         args += ["--newline"]
+        // --print implicitly enables --quiet; --no-quiet + --progress restore progress lines
+        args += ["--no-quiet", "--progress"]
         args += ["--ffmpeg-location", BinaryLocator.ffmpegURL.path]
 
         switch o.format.audioPostProcess {
