@@ -95,7 +95,21 @@ final class QueueModel {
     @MainActor
     private func runSingle(_ item: QueueItem, libraryFolder: URL) async {
         item.status = .running
-        let outputTemplate = libraryFolder.appendingPathComponent("%(title)s.%(ext)s").path
+
+        // Pick an output template that won't collide with an existing file.
+        // Strategy: probe yt-dlp's predicted filename (with the final extension) and
+        // if it already exists, append " v2", " v3", etc. until we find a free slot.
+        let outputTemplate: String
+        do {
+            outputTemplate = try await nextAvailableOutputTemplate(
+                for: item.url,
+                format: item.format,
+                libraryFolder: libraryFolder
+            )
+        } catch {
+            outputTemplate = libraryFolder.appendingPathComponent("%(title)s.%(ext)s").path
+        }
+
         let opts = YTDLPDownloadOptions(
             url: item.url,
             format: item.format,
@@ -133,5 +147,49 @@ final class QueueModel {
             item.status = .failed
             item.errorMessage = error.localizedDescription
         }
+    }
+
+    /// Probe what filename yt-dlp would write, then pick a template whose output doesn't
+    /// collide with an existing file. Returns a template (`%(title)s.%(ext)s` or with a
+    /// ` v2`/` v3`/... suffix baked in).
+    private func nextAvailableOutputTemplate(
+        for url: String,
+        format: DownloadFormat,
+        libraryFolder: URL
+    ) async throws -> String {
+        // Build a probe template with the final extension hardcoded so the predicted
+        // filename reflects post-processing (mp4 for merged video, mp3/wav for audio).
+        let finalExt: String = {
+            switch format.audioPostProcess {
+            case .mp3_320: return "mp3"
+            case .wav_16_441: return "wav"
+            case nil: return "mp4"
+            }
+        }()
+        let probeTemplate = libraryFolder.appendingPathComponent("%(title)s.\(finalExt)").path
+        let predictedPath = try await YTDLPRunner.probeFilename(
+            url: url,
+            outputTemplate: probeTemplate,
+            ytdlpFormat: format.ytdlpFormat
+        )
+        let predicted = URL(fileURLWithPath: predictedPath)
+        let fm = FileManager.default
+
+        if !fm.fileExists(atPath: predicted.path) {
+            return libraryFolder.appendingPathComponent("%(title)s.%(ext)s").path
+        }
+
+        // Collision — try " v2", " v3", ... until a slot opens.
+        var version = 2
+        while version < 1000 {
+            let baseName = predicted.deletingPathExtension().lastPathComponent
+            let candidate = libraryFolder.appendingPathComponent("\(baseName) v\(version).\(finalExt)")
+            if !fm.fileExists(atPath: candidate.path) {
+                return libraryFolder.appendingPathComponent("%(title)s v\(version).%(ext)s").path
+            }
+            version += 1
+        }
+        // Fallback (shouldn't happen)
+        return libraryFolder.appendingPathComponent("%(title)s.%(ext)s").path
     }
 }

@@ -124,6 +124,29 @@ final class YTDLPRunner: @unchecked Sendable {
         return args
     }
 
+    /// Ask yt-dlp what final filename it would write for this URL + format + template,
+    /// without downloading. Used to detect collisions and pick a versioned output name.
+    static func probeFilename(url: String, outputTemplate: String, ytdlpFormat: String) async throws -> String {
+        let p = Process()
+        p.executableURL = BinaryLocator.ytdlpURL
+        p.arguments = [
+            "--print", "filename",
+            "--skip-download",
+            "-o", outputTemplate,
+            "-f", ytdlpFormat,
+            url
+        ]
+        let pipe = Pipe()
+        p.standardOutput = pipe
+        p.standardError = Pipe()
+        try p.run()
+        await withCheckedContinuation { (cont: CheckedContinuation<Void, Never>) in
+            p.terminationHandler = { _ in cont.resume() }
+        }
+        let data = (try? pipe.fileHandleForReading.readToEnd()) ?? Data()
+        return (String(data: data, encoding: .utf8) ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
     /// One-shot: run `yt-dlp -F <url>` and return the table as a string.
     static func listFormats(_ url: String) async throws -> String {
         let p = Process()
