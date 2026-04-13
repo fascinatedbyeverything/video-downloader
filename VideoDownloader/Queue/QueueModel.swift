@@ -101,7 +101,7 @@ final class QueueModel {
         // if it already exists, append " v2", " v3", etc. until we find a free slot.
         let outputTemplate: String
         do {
-            outputTemplate = try await nextAvailableOutputTemplate(
+            outputTemplate = try await Self.nextAvailableOutputTemplate(
                 for: item.url,
                 format: item.format,
                 libraryFolder: libraryFolder
@@ -152,7 +152,7 @@ final class QueueModel {
     /// Probe what filename yt-dlp would write, then pick a template whose output doesn't
     /// collide with an existing file. Returns a template (`%(title)s.%(ext)s` or with a
     /// ` v2`/` v3`/... suffix baked in).
-    private func nextAvailableOutputTemplate(
+    private static func nextAvailableOutputTemplate(
         for url: String,
         format: DownloadFormat,
         libraryFolder: URL
