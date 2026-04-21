@@ -2,11 +2,12 @@ import SwiftUI
 
 struct MainView: View {
     enum Tab: String, CaseIterable, Identifiable {
+        case search = "Search"
         case queue = "Queue"
         case library = "Library"
         var id: String { rawValue }
     }
-    @State private var selected: Tab = .queue
+    @State private var selected: Tab = .search
 
     var body: some View {
         VStack(spacing: 0) {
@@ -19,6 +20,7 @@ struct MainView: View {
             Divider()
 
             switch selected {
+            case .search: SearchView()
             case .queue: QueueView()
             case .library: LibraryView()
             }
