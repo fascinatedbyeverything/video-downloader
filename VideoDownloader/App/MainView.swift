@@ -5,6 +5,7 @@ struct MainView: View {
         case search = "Search"
         case queue = "Queue"
         case library = "Library"
+        case spotify = "Spotify"
         var id: String { rawValue }
     }
     @State private var selected: Tab = .search
@@ -23,6 +24,7 @@ struct MainView: View {
             case .search: SearchView()
             case .queue: QueueView()
             case .library: LibraryView()
+            case .spotify: SpotifyTabView()
             }
         }
     }

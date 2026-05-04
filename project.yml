@@ -2,7 +2,7 @@ name: VideoDownloader
 options:
   bundleIdPrefix: com.fascinatedbyeverything
   deploymentTarget:
-    macOS: "14.0"
+    macOS: "14.2"
   createIntermediateGroups: true
   generateEmptyDirectories: true
 configs:
@@ -11,7 +11,7 @@ configs:
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.2"
     MARKETING_VERSION: "1.0"
     CURRENT_PROJECT_VERSION: "1"
 targets:
@@ -34,6 +34,8 @@ targets:
         INFOPLIST_KEY_LSMinimumSystemVersion: "$(MACOSX_DEPLOYMENT_TARGET)"
         INFOPLIST_KEY_NSHumanReadableCopyright: ""
         INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        INFOPLIST_KEY_NSAppleEventsUsageDescription: "Video Downloader controls the Spotify app to play and capture playlists you choose."
+        CODE_SIGN_ENTITLEMENTS: VideoDownloader/VideoDownloader.entitlements
         CODE_SIGN_STYLE: Automatic
         ENABLE_HARDENED_RUNTIME: YES
         COMBINE_HIDPI_IMAGES: YES
@@ -44,6 +46,11 @@ targets:
     platform: macOS
     sources:
       - path: VideoDownloaderTests
+        excludes:
+          - "Fixtures/**"
+      - path: VideoDownloaderTests/Fixtures
+        buildPhase: resources
+        type: folder
     dependencies:
       - target: VideoDownloader
     settings:
