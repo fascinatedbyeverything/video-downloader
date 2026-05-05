@@ -26,12 +26,16 @@ enum YTDLPSearch {
     ) async throws -> [SearchResult] {
         let p = Process()
         p.executableURL = BinaryLocator.ytdlpURL
-        p.arguments = [
+        var args: [String] = [
             "--flat-playlist",
             "--dump-json",
-            "--no-warnings",
-            "ytsearch\(limit):\(query)"
+            "--no-warnings"
         ]
+        if YTDLPRunner.useChromeCookies {
+            args += ["--cookies-from-browser", "chrome"]
+        }
+        args.append("ytsearch\(limit):\(query)")
+        p.arguments = args
         let stdoutPipe = Pipe()
         let stderrPipe = Pipe()
         p.standardOutput = stdoutPipe

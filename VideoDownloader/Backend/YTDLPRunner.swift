@@ -92,7 +92,14 @@ final class YTDLPRunner: @unchecked Sendable {
         stdoutBuffer = String(trailing)
     }
 
-    private func buildArguments(_ o: YTDLPDownloadOptions) -> [String] {
+    /// Reads the "Use Chrome cookies" toggle stored under @AppStorage("useChromeCookies").
+    /// Lets yt-dlp authenticate as the user's logged-in Chrome session — required for
+    /// private playlists (e.g. Spotify-imported YT Music playlists default to private).
+    static var useChromeCookies: Bool {
+        UserDefaults.standard.bool(forKey: "useChromeCookies")
+    }
+
+    func buildArguments(_ o: YTDLPDownloadOptions) -> [String] {
         var args: [String] = []
         args += ["-f", o.format.ytdlpFormat]
         args += ["-o", o.outputTemplate]
@@ -100,6 +107,9 @@ final class YTDLPRunner: @unchecked Sendable {
         // --print implicitly enables --quiet; --no-quiet + --progress restore progress lines
         args += ["--no-quiet", "--progress"]
         args += ["--ffmpeg-location", BinaryLocator.ffmpegURL.path]
+        if Self.useChromeCookies {
+            args += ["--cookies-from-browser", "chrome"]
+        }
 
         switch o.format.audioPostProcess {
         case .mp3_320:
@@ -129,13 +139,17 @@ final class YTDLPRunner: @unchecked Sendable {
     static func probeFilename(url: String, outputTemplate: String, ytdlpFormat: String) async throws -> String {
         let p = Process()
         p.executableURL = BinaryLocator.ytdlpURL
-        p.arguments = [
+        var args: [String] = [
             "--print", "filename",
             "--skip-download",
             "-o", outputTemplate,
-            "-f", ytdlpFormat,
-            url
+            "-f", ytdlpFormat
         ]
+        if useChromeCookies {
+            args += ["--cookies-from-browser", "chrome"]
+        }
+        args.append(url)
+        p.arguments = args
         let pipe = Pipe()
         p.standardOutput = pipe
         p.standardError = Pipe()
@@ -151,7 +165,12 @@ final class YTDLPRunner: @unchecked Sendable {
     static func listFormats(_ url: String) async throws -> String {
         let p = Process()
         p.executableURL = BinaryLocator.ytdlpURL
-        p.arguments = ["-F", url]
+        var args = ["-F"]
+        if useChromeCookies {
+            args += ["--cookies-from-browser", "chrome"]
+        }
+        args.append(url)
+        p.arguments = args
         let pipe = Pipe()
         p.standardOutput = pipe
         p.standardError = pipe

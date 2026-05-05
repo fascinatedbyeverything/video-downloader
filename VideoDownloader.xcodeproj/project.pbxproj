@@ -22,6 +22,7 @@
 		214DAEC17727A224E3CE409B /* XCTAssertEqualOptional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129347307FEDCB6F98C507A /* XCTAssertEqualOptional.swift */; };
 		25BB2EDD09AFD001CF71F591 /* SidecarJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3A63F5F631680D554BDF0 /* SidecarJSON.swift */; };
 		27F3A671EB2D6234BC03E3A8 /* SpotifyMetadataScraper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB94B549E4D4D714448B8A /* SpotifyMetadataScraper.swift */; };
+		2CB2CB2E1CF8CD82EB6272F3 /* YTDLPRunnerArgsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9567DE51E5EB28378FEB4 /* YTDLPRunnerArgsTests.swift */; };
 		2F885DBB0AC8F43EA911EA77 /* BinaryLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BA9DD516EB837459A0A13B /* BinaryLocator.swift */; };
 		30B8364EA68B508C06CA4A64 /* FormatProbeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */; };
 		33F524DEB0C598B4EA1BE58B /* YTDLPSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEAA88BD71CB2CBADF9A523F /* YTDLPSearch.swift */; };
@@ -110,6 +111,7 @@
 		5ED3A5DCEC71D5E8D42D8350 /* SpotifyPlaybackObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyPlaybackObserver.swift; sourceTree = "<group>"; };
 		5EEA4AB8BDF7C2D8020F95EB /* MediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaItem.swift; sourceTree = "<group>"; };
 		60F0D3DD98416745111FCB50 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		61B9567DE51E5EB28378FEB4 /* YTDLPRunnerArgsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDLPRunnerArgsTests.swift; sourceTree = "<group>"; };
 		64D8FEB80E0F3CBD9C3E081B /* FormatProbeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatProbeTests.swift; sourceTree = "<group>"; };
 		678E43304D53E64838E15BA7 /* SpotifyTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyTabModel.swift; sourceTree = "<group>"; };
 		697988F0301816A4FC134EA7 /* LibraryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryModel.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				5119CE3F1DA6C70E3AB2651C /* URLClassifierTests.swift */,
 				12AF7E3DD31EFF586A02E1CB /* VideoDownloaderTests.swift */,
 				4129347307FEDCB6F98C507A /* XCTAssertEqualOptional.swift */,
+				61B9567DE51E5EB28378FEB4 /* YTDLPRunnerArgsTests.swift */,
 			);
 			path = VideoDownloaderTests;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				51581AB4FAE1638F369E69D2 /* URLClassifierTests.swift in Sources */,
 				73C404B398581040C7D19785 /* VideoDownloaderTests.swift in Sources */,
 				214DAEC17727A224E3CE409B /* XCTAssertEqualOptional.swift in Sources */,
+				2CB2CB2E1CF8CD82EB6272F3 /* YTDLPRunnerArgsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

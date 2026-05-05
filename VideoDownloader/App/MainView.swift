@@ -9,6 +9,7 @@ struct MainView: View {
         var id: String { rawValue }
     }
     @State private var selected: Tab = .search
+    @AppStorage("useChromeCookies") private var useChromeCookies: Bool = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -16,7 +17,21 @@ struct MainView: View {
                 ForEach(Tab.allCases) { Text($0.rawValue).tag($0) }
             }
             .pickerStyle(.segmented)
-            .padding(8)
+            .padding(.horizontal, 8)
+            .padding(.top, 8)
+
+            HStack(spacing: 6) {
+                Toggle(isOn: $useChromeCookies) {
+                    Text("Use Chrome cookies")
+                        .font(.caption)
+                }
+                .toggleStyle(.switch)
+                .controlSize(.mini)
+                .help("Send the user's logged-in Chrome session to yt-dlp. Required for private playlists — e.g. Spotify-imported YouTube Music playlists default to private.")
+                Spacer()
+            }
+            .padding(.horizontal, 8)
+            .padding(.vertical, 4)
 
             Divider()
 
